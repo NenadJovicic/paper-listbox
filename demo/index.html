@@ -1,39 +1,25 @@
-<!doctype html>
-<!--
-@license
-Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
+  <title>sublistbox</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <!-- support for webcomponents on every browser -->
+  <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
-  <title>paper-listbox demo</title>
+  <link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
+  <link rel="import" href="../bower_components/paper-item/paper-item.html">
 
-  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <!-- You own very simple element which creates submenu by using iron-collapse -->
+  <link rel="import" href="../collapse-button.html">
 
-  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-  <link rel="import" href="../../paper-item/paper-item.html">
-  <link rel="import" href="../paper-listbox.html">
 </head>
-<body unresolved>
-  <custom-style>
-    <style is="custom-style" include="demo-pages-shared-styles">
-      code {
-        background-color: #eee;
-        color: #222;
-        border-radius: 2px;
-        padding: 2px;
-      }
 
+<body>
+  <custom-style>
+    <style is="custom-style">
       paper-listbox {
         border: 1px dotted #ccc;
       }
@@ -43,74 +29,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
   </custom-style>
-
-  <div class="vertical-section-container centered">
-    <h3>Initially, no item is selected.</h3>
-    <demo-snippet>
-      <template>
-        <paper-listbox>
-          <paper-item>Inbox</paper-item>
-          <paper-item>Starred</paper-item>
-          <paper-item>Sent mail</paper-item>
-          <paper-item>Drafts</paper-item>
-        </paper-listbox>
-      </template>
-    </demo-snippet>
-  </div>
-
-  <div class="vertical-section-container centered">
-    <h3>
-      Use <code>selected</code> to specity an item to be selected by default.
-    </h3>
-    <demo-snippet>
-      <template>
-        <paper-listbox selected="0">
-          <paper-item>Inbox</paper-item>
-          <paper-item disabled>Starred</paper-item>
-          <paper-item>Sent mail</paper-item>
-          <paper-item>Drafts</paper-item>
-        </paper-listbox>
-      </template>
-    </demo-snippet>
-  </div>
-
-  <div class="vertical-section-container centered">
-    <h3>
-      Use <code>multi</code> to allow multiple items to be selected.
-    </h3>
-    <demo-snippet>
-      <template>
-        <paper-listbox multi>
-          <paper-item>Bold</paper-item>
-          <paper-item>Italic</paper-item>
-          <paper-item>Underline</paper-item>
-          <paper-item>Strikethrough</paper-item>
-        </paper-listbox>
-      </template>
-    </demo-snippet>
-  </div>
-
-  <div class="vertical-section-container centered">
-    <h3>
-      Use <code>attr-for-selected</code> (from <code>IronSelectableBehavior</code>)
-      to select items by attribute value, rather than index.
-    </h3>
-    <demo-snippet>
-      <template>
-        <dom-bind>
-          <template is="dom-bind">
-            <p>"[[itemName]]" is selected.</p>
-            <paper-listbox attr-for-selected="item-name" selected="{{itemName}}" fallback-selection="None">
-              <paper-item item-name="None">None</paper-item>
-              <paper-item item-name="Bold">Bold</paper-item>
-              <paper-item item-name="Italic">Italic</paper-item>
-              <paper-item item-name="Underline">Underline</paper-item>
-              <paper-item item-name="Strikethrough">Strikethrough</paper-item>
-            </paper-listbox>
-          </template>
-        </dom-bind>
-      </template>
-    </demo-snippet>
-  </div>
+  <paper-listbox>
+    <collapse-button>
+      <paper-item slot="sublist-collapse-item">Item 1 click-me</paper-item>
+      <paper-item>Item 1.1</paper-item>
+      <paper-item>Item 1.2</paper-item>
+      <paper-item>Item 1.3</paper-item>
+    </collapse-button>
+    <paper-item>Item 2</paper-item>
+    <collapse-button opened>
+      <paper-item slot="sublist-collapse-item">Item 3</paper-item>
+      <paper-item>Item 3.1</paper-item>
+      <paper-item>Item 3.2</paper-item>
+      <paper-item>Item 3.3</paper-item>
+    </collapse-button>
+  </paper-listbox>
 </body>
+
 </html>

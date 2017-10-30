@@ -21,7 +21,8 @@
     "polymer": "Polymer/polymer#1.9 - 2",
     "iron-behaviors": "PolymerElements/iron-behaviors#1 - 2",
     "iron-menu-behavior": "PolymerElements/iron-menu-behavior#1 - 2",
-    "paper-styles": "PolymerElements/paper-styles#1 - 2"
+    "paper-styles": "PolymerElements/paper-styles#1 - 2",
+    "iron-collapse": "PolymerElements/iron-collapse#^2.0.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#1 - 2",
